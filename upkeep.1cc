@@ -1,0 +1,5 @@
+# Upkeep commands
+
+gamemode 2 @a[m=0]
+
+execute @a[m=2] ~ ~ ~ detect ~ ~-1 ~ minecraft:coal_block 0 tp @p[m=2] 0 81 0

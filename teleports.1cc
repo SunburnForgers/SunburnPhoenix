@@ -1,0 +1,6 @@
+# Portal from pig shrine
+tp @a[-5,56,-5,m=2,dx=11,dz=11,dy=1] 0 82 0
+
+# Portal to pig shrine
+execute @p 0.5 80.5 -9.5 tp @a[dx=1,dy=1,dz=1,m=2] 0 61 0
+particle portal 0.5 81.75 -8.5 .25 .5 .25 1 10
