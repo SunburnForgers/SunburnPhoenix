@@ -1,7 +1,6 @@
-# Spectator button
-testforblock 5 82 -8 minecraft:stone_button 11
-COND: gamemode 3 @a[5,82,-8,3,m=2]
-setblock 5 82 -8 minecraft:stone_button 3
+# Spectator portal
+execute @p 5.5 80.5 -9.5 gamemode 3 @a[dx=1,dy=1,dz=1,m=2]
+particle mobSpell 5.5 81.5 -8.5 1 1 1 .75 0
 
 # Spectator teleporting
 scoreboard players tag @a[m=!3] remove spectator
