@@ -1,0 +1,17 @@
+INIT: scoreboard objectives add gameTime dummy Rough Time
+scoreboard players add ticks gameTime 0
+scoreboard players add seconds gameTime 0
+
+INIT: scoreboard objectives add prettyTime dummy Time Elapsed
+scoreboard players add Seconds prettyTime 0
+INIT: scoreboard objectives setdisplay sidebar prettyTime
+
+INIT: scoreboard objectives add constants dummy Constants
+scoreboard players set tps constants 20
+
+execute @p[tag=inGame] ~ ~ ~ \
+	scoreboard players add ticks gameTime 1
+
+scoreboard players operation seconds gameTime = ticks gameTime
+scoreboard players operation seconds gameTime /= tps constants
+scoreboard players operation Seconds prettyTime = seconds gameTime
