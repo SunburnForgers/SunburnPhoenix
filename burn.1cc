@@ -12,10 +12,14 @@ execute @a ~ ~ ~ \
 execute @e[type=Blaze] ~ ~ ~ \
 	scoreboard players operation @e[type=Blaze,r=0,c=1] burnTime %= burnFrequencyPlayer settings
 
-DEFINE: REPLACE(target,meta,input,inpmeta) execute @e[score_burnTime_min=1,score_burnTime=1] ~ ~ ~ \
+DEFINE: REPLACE(target,meta,input,inpmeta) execute @e[score_burnTime_min=1,score_burnTime=1,tag=!pyre] ~ ~ ~ \
 	fill ~-1 ~-2 ~-1 ~1 ~ ~1 |target| |meta| replace |input| |inpmeta|
 
 $replace("air",0,"stained_hardened_clay",14)
 $replace("stained_hardened_clay",14,"stained_hardened_clay",1)
 $replace("stained_hardened_clay",1,"stained_hardened_clay",4)
 $replace("stained_hardened_clay",4,"stained_hardened_clay",0)
+
+execute @e[tag=pyre] ~ ~ ~ \
+	fill ~-1 ~-2 ~-1 ~1 ~ ~1 stained_hardened_clay 14 replace stained_hardened_clay
+	
