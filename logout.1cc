@@ -1,0 +1,6 @@
+INIT: scoreboard objectives add inWorld dummy In World
+
+scoreboard players add @a inWorld 0
+scoreboard players reset @a[score_inWorld=0]
+scoreboard players set * inWorld 0
+scoreboard players set @a inWorld 1
