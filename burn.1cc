@@ -19,7 +19,3 @@ $replace("air",0,"stained_hardened_clay",14)
 $replace("stained_hardened_clay",14,"stained_hardened_clay",1)
 $replace("stained_hardened_clay",1,"stained_hardened_clay",4)
 $replace("stained_hardened_clay",4,"stained_hardened_clay",0)
-
-execute @e[tag=pyre] ~ ~ ~ \
-	fill ~-1 ~-2 ~-1 ~1 ~ ~1 stained_hardened_clay 14 replace stained_hardened_clay
-	
