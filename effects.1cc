@@ -2,3 +2,5 @@ effect @a minecraft:resistance 20 4 true
 effect @a minecraft:jump_boost 20 255 true
 effect @a minecraft:night_vision 20 0 true
 effect @a minecraft:saturation 400 0 true
+effect @a[tag=inGame] minecraft:glowing 20 0 true
+effect @a[tag=!inGame] minecraft:glowing 0
