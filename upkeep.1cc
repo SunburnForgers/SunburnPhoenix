@@ -4,8 +4,8 @@ gamemode 2 @a[m=0]
 
 execute @a[m=2] ~ ~ ~ detect ~ ~-1 ~ minecraft:coal_block 0 tp @p[m=2] 0 81 0
 
-scoreboard players tag @a remove inGame
-scoreboard players tag @a[1,30,1499,60,m=2] add inGame 
+scoreboard players tag @a[1,30,1499,rm=60] remove inGame
+scoreboard players tag @a[m=!2] remove inGame
 
 INIT: scoreboard teams add no_pvp No PVP
 INIT: scoreboard teams option no_pvp friendlyfire false
