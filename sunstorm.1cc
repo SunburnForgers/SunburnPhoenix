@@ -1,0 +1,19 @@
+INIT: scoreboard objectives add triggers dummy Triggers
+
+scoreboard players test storm triggers 1
+
+DEFINE: REPLACE(target,meta,input,inpmeta) \
+	execute @p[tag=inGame] ~ ~ ~ \
+		fill -24 55 1524 25 47 1475 |target| |meta| replace |input| |inpmeta| \;\
+	execute @p[tag=inGame] ~ ~ ~ \
+		fill -24 63 1524 25 55 1475 |target| |meta| replace |input| |inpmeta|
+
+
+REPEAT:COND:$replace("air",0,"stained_hardened_clay",14)
+$replace("stained_hardened_clay",14,"stained_hardened_clay",1)
+$replace("stained_hardened_clay",1,"stained_hardened_clay",4)
+$replace("stained_hardened_clay",4,"stained_hardened_clay",0)
+
+execute @a[tag=inGame] ~ ~ ~ summon LightningBolt
+
+scoreboard players set storm triggers 0
