@@ -1,0 +1,11 @@
+DEFINE: RESET(y) clone -25 94 1474 26 94 1525 -25 |y| 1474 masked
+
+INIT: scoreboard objectives add triggers dummy Triggers
+
+scoreboard players test reset triggers 1
+
+REPEAT:COND:$RESET(47)
+$RESET(55)
+$RESET(63)
+
+scoreboard players set reset triggers 0
