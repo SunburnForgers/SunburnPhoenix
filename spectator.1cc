@@ -1,0 +1,16 @@
+# Spectator button
+testforblock 5 82 -8 minecraft:stone_button 11
+COND: gamemode 3 @a[5,82,-8,3,m=2]
+setblock 5 82 -8 minecraft:stone_button 3
+
+# Spectator teleporting
+scoreboard players tag @a[m=!3] remove spectator
+tp @a[m=3,tag=!spectator] 1 66 1499
+tellraw @a[m=3,tag=!spectator] {"text":"","extra":[{"text":"Press your ","color":"gold"},{"text":"open inventory","color":"green","underlined":"true"},{"text":" key to return to the spawn.","color":"gold"}]}
+scoreboard players tag @a[m=3] add spectator
+
+# Spectator returning
+INIT: scoreboard objectives add inventory achievement.openInventory Open Inventory
+tp @a[m=3,score_inventory_min=1] 0 81 0
+gamemode 2 @a[m=3,score_inventory_min=1]
+scoreboard players set @a inventory 0
