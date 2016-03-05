@@ -1,10 +1,13 @@
-DEFINE: RESET(y) clone -25 94 1474 26 94 1525 -25 |y| 1474 masked
+DEFINE: RESET(y) execute @p[score_triggercalc_min=1] ~ ~ ~ clone -25 94 1474 26 94 1525 -25 |y| 1474 masked
 
 INIT: scoreboard objectives add triggers dummy Triggers
+INIT: scoreboard objectives add triggercalc dummy Trigger Calculations
 
+scoreboard players set @a triggercalc 0
 scoreboard players test reset triggers 1
+COND: scoreboard players operation @a triggercalc = reset triggers
 
-REPEAT:COND:$RESET(47)
+$RESET(47)
 $RESET(55)
 $RESET(63)
 
