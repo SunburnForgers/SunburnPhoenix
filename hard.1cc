@@ -4,7 +4,7 @@ COND: testforblock ~ ~-2 ~ repeating_command_block -1 {SuccessCount:0}
 COND: testforblock -9 83 0 redstone_block
 COND: setblock -9 83 0 coal_block
 COND: title @a title {"text":"","extra":[{"text":"Easy mode enabled.","color":"green"}]}
-COND: title @a subtitle {"text":"","extra":[{"text":"The game will be played at the pace of the players.","color":"green"}]}
+COND: title @a subtitle {"text":"","extra":[{"text":"The game will be slower.","color":"green"}]}
 
 testfor @p[tag=inGame]
 testforblock -8 82 0 lever 9
@@ -12,4 +12,4 @@ COND: testforblock ~ ~-2 ~ chain_command_block -1 {SuccessCount:0}
 COND: testforblock -9 83 0 coal_block
 COND: setblock -9 83 0 redstone_block
 COND: title @a title {"text":"","extra":[{"text":"Hard mode enabled.","color":"red"}]}
-COND: title @a subtitle {"text":"","extra":[{"text":"The Sunstorm will up the pace of the game.","color":"red"}]}
+COND: title @a subtitle {"text":"","extra":[{"text":"The Sunstorm will up the pace.","color":"red"}]}
