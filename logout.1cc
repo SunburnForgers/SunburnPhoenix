@@ -1,7 +1,7 @@
 INIT: scoreboard objectives add inWorld dummy In World
 
 scoreboard players add @a inWorld 0
-tp @a[score_inWorld=0] 0 81 0
+tp @a[score_inWorld=0] 0 81 0 0 0
 gamemode 2 @a[score_inWorld=0]
 scoreboard players reset @a[score_inWorld=0]
 scoreboard players set * inWorld 0
