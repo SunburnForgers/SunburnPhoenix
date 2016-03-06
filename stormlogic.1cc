@@ -12,6 +12,7 @@ scoreboard players set @a triggercalc 0
 scoreboard players test storm gameTime 0 0
 COND: scoreboard players test ticks gameTime 1
 COND: testfor @p[tag=inGame]
+COND: testforblock -9 83 0 redstone_block
 COND: scoreboard players set storm triggers 1
 COND: title @a title {"text":"","extra":[{"text":"The Sunstorm rages!","color":"gold","bold":"true"}]}
 COND: title @a subtitle {"text":"","extra":[{"text":"All is dust before its heat!","color":"gold"}]}
