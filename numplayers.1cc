@@ -1,0 +1,2 @@
+scoreboard players set players numPlayers 0
+execute @a[tag=inGame] ~ ~ ~ scoreboard players add players numPlayers 1
