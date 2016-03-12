@@ -7,6 +7,7 @@ scoreboard players add playersStatic numPlayers 0
 scoreboard players add @a[score_startTimer_min=1] startTimer 1
 
 $forTimer(1) playsound random.successful_hit master @a ~ ~ ~ 2 0 1
+COND:scoreboard players set reset triggers 1
 
 $forTimer(20) playsound ui.button.click master @a[c=1] ~ ~ ~ 
 $forTimer(20) title @a[c=1] title {"text":"","extra":[{"text":"3...","color":"white"}]}
