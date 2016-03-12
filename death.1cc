@@ -1,5 +1,4 @@
 scoreboard players tag @a[x=-24,y=20,z=1527,dx=55,dy=-10,dz=-55,m=2] add dead
 COND:tp @a[tag=dead,c=1] 0 81 0
 COND:/tellraw @a ["",{"selector":"@a[tag=dead,c=1]","color":"gold","bold":true},{"text":" has been Sun","color":"gold","bold":true},{"text":"Burned","color":"dark_red","bold":true}]
-COND:scoreboard players tag @a[tag=dead,c=1] remove inGame
 COND:scoreboard players tag @a[tag=dead,c=1] remove dead
