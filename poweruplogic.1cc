@@ -1,0 +1,19 @@
+INIT: scoreboard objectives add killBlaze stat.killEntity.Blaze Blaze Kills
+INIT: scoreboard objectives add settings dummy Settings
+INIT: scoreboard objectives add triggercalc dummy Trigger Calculations
+INIT: scoreboard objectives add triggers dummy Triggers
+INIT: scoreboard players set blazeSpawnFrequency settings 500
+
+execute @r[type=ArmorStand,tag=powerupExecutor] ~ ~ ~ setblock ~ ~ ~ redstone_block
+
+scoreboard players add powerup gameTime 0
+scoreboard players operation powerup gameTime = ticks gameTime
+scoreboard players operation powerup gameTime %= blazeSpawnFrequency settings
+
+scoreboard players set @a triggercalc 0
+scoreboard players test powerup gameTime 0 0
+COND: scoreboard players test ticks gameTime 1
+COND: testfor @p[tag=inGame]
+COND: scoreboard players set calcPowerups triggers 1
+COND: title @a title {"text":"","extra":[{"text":"Powerups Spawned!","color":"gold"}]}
+COND: title @a subtitle {"text":"","extra":[{"text":"Hit a blaze to collect one!","color":"gold"}]}

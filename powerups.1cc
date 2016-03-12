@@ -1,0 +1,28 @@
+INIT: scoreboard objectives add triggercalc dummy Trigger Calculations
+INIT: scoreboard objectives add triggers dummy Triggers
+
+DEFINE: testrange(start,stop) \
+	scoreboard players test calcPowerups triggers 1 \;\
+	COND: scoreboard players test players numPlayers |start| |stop|
+
+$testrange(0,2)
+	COND: scoreboard players set powerup triggers 2
+$testrange(3,5)
+	COND: scoreboard players set powerup triggers 4
+$testrange(6,)
+	COND: scoreboard players set powerup triggers 6
+
+scoreboard players set calcPowerups triggers 0
+
+tp @e[tag=spreadblaze,type=Blaze] ~ 64 ~
+scoreboard players tag @e[tag=spreadblaze,type=Blaze] remove spreadblaze
+
+scoreboard players set @a triggercalc 0
+scoreboard players test powerup triggers 1
+COND: scoreboard players operation @a triggercalc = powerup triggers
+
+execute @p[score_triggercalc_min=1] ~ ~ ~ summon Blaze 0 94 1500 {HealF:1,Attributes:[{Name:generic.followRange,Base:0},{Name:generic.movementSpeed,Base:0},{Name:generic.attackDamage,Base:0}],Tags:["spreadblaze"]}
+spreadplayers 1 1499 2 13 false @e[tag=spreadblaze,type=Blaze]
+
+scoreboard players test powerup triggers 1
+COND: scoreboard players remove powerup triggers 1
