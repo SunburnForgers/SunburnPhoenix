@@ -7,7 +7,9 @@ scoreboard players add playersStatic numPlayers 0
 scoreboard players add @a[score_startTimer_min=1] startTimer 1
 
 $forTimer(1) playsound random.successful_hit master @a ~ ~ ~ 2 0 1
-$forTimer(1) scoreboard players set reset triggers 1
+$forTimer(1) effect @p clear
+
+$forTimer(2) scoreboard players set reset triggers 1
 
 $forTimer(20) playsound ui.button.click master @a[c=1] ~ ~ ~ 
 $forTimer(20) title @a[c=1] title {"text":"","extra":[{"text":"3...","color":"white"}]}
@@ -24,5 +26,5 @@ $forTimer(80) playsound minecraft:entity.enderdragon.ambient master @a[c=1] ~ ~ 
 
 $forTimer(80) scoreboard players tag @p add inGame
 $forTimer(80) effect @a[tag=inGame] minecraft:glowing 1000000 0 true
-$forTimer(80) scoreboard players reset @p startTimer
 $forTimer(80) scoreboard players operation playersStatic numPlayers = players numPlayers
+$forTimer(80) scoreboard players reset @p startTimer
