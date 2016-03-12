@@ -3,3 +3,4 @@ COND:/testforblock -5 82 -8 stone_button 11
 COND:setblock -5 82 -8 wooden_button 11
 COND:tp @a[m=2] 1 85 1499
 COND:scoreboard players set @a[m=2] startTimer 1
+COND:scoreboard players operation players numPlayersStatic = players numPlayers
