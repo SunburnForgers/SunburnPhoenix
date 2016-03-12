@@ -4,7 +4,7 @@ INIT: scoreboard objectives add triggercalc dummy Trigger Calculations
 INIT: scoreboard objectives add triggers dummy Triggers
 INIT: scoreboard players set blazeSpawnFrequency settings 500
 
-execute @r[type=ArmorStand,tag=powerupExecutor] ~ ~ ~ setblock ~ ~ ~ redstone_block
+execute @r[type=ArmorStand,tag=powerupExecutor] ~ ~ ~ setblock ~ ~ ~ command_block 1 replace {auto:1b,Command:"setblock ~ ~ ~ air"}
 
 scoreboard players add powerup gameTime 0
 scoreboard players operation powerup gameTime = ticks gameTime

@@ -1,0 +1,2 @@
+scoreboard players test players numPlayers 0 0
+COND:fill -5 82 -8 -5 82 -8 stone_button 3 replace wooden_button

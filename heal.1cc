@@ -1,0 +1,18 @@
+INIT: scoreboard objectives add triggers dummy Triggers
+INIT: scoreboard objectives add triggercalc dummy Trigger Calculations
+
+scoreboard players set @a triggercalc 0
+scoreboard players test heal triggers 1
+COND: scoreboard players operation @a triggercalc = heal triggers
+
+DEFINE: REPLACE(target,meta,input,inpmeta) \
+	execute @p[score_triggercalc_min=1] ~ ~ ~ \
+		fill -24 55 1524 25 47 1475 |target| |meta| replace |input| |inpmeta| \;\
+	execute @p[score_triggercalc_min=1] ~ ~ ~ \
+		fill -24 63 1524 25 55 1475 |target| |meta| replace |input| |inpmeta|
+
+$replace("stained_hardened_clay",0,"stained_hardened_clay",4)
+$replace("stained_hardened_clay",4,"stained_hardened_clay",1)
+$replace("stained_hardened_clay",1,"stained_hardened_clay",14)
+
+scoreboard players set heal triggers 0

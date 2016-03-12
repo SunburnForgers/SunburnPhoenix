@@ -4,13 +4,15 @@ INIT: scoreboard objectives add burnTime dummy Burn Clock
 INIT: scoreboard players set burnFrequencyPlayer settings 10
 INIT: scoreboard players set burnFrequencyBlaze settings 40
 
+
+scoreboard players set @a[tag=!inGame] burnTime 0
 scoreboard players add @e[type=Blaze] burnTime 1
 scoreboard players add @a[tag=inGame] burnTime 1
 
 execute @a ~ ~ ~ \
 	scoreboard players operation @p burnTime %= burnFrequencyPlayer settings
 execute @e[type=Blaze] ~ ~ ~ \
-	scoreboard players operation @e[type=Blaze,r=0,c=1] burnTime %= burnFrequencyPlayer settings
+	scoreboard players operation @e[type=Blaze,r=0,c=1] burnTime %= burnFrequencyBlaze settings
 
 DEFINE: REPLACE(target,meta,input,inpmeta) execute @e[score_burnTime_min=1,score_burnTime=1,tag=!pyre] ~ ~ ~ \
 	fill ~-1 ~-2 ~-1 ~1 ~ ~1 |target| |meta| replace |input| |inpmeta|

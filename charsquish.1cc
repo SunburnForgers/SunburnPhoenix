@@ -1,0 +1,40 @@
+
+INIT: scoreboard players set charFrequency settings 40
+INIT: scoreboard objectives add char dummy Char Time
+INIT: scoreboard objectives add squish dummy Squish Time
+
+scoreboard players add @a char 0
+scoreboard players add @a squish 0
+
+
+scoreboard players add char gameTime 0
+scoreboard players operation char gameTime = ticks gameTime
+scoreboard players operation char gameTime %= charFrequency settings
+
+scoreboard players test char gameTime 0 0
+	COND:fill -24 55 1524 25 47 1475 air 0 replace stained_hardened_clay 15
+scoreboard players test char gameTime 0 0
+	COND:fill -24 63 1524 25 55 1475 air 0 replace stained_hardened_clay 15
+
+scoreboard players tag @a[tag=!inGame] remove pyre
+scoreboard players tag @a[score_char=0,score_squish=0] remove pyre
+scoreboard players tag @a[score_char_min=1] add pyre
+scoreboard players tag @a[score_squish_min=1] add pyre
+
+
+DEFINE: REPLACE(target,meta,input,inpmeta) execute @e[score_burnTime_min=1,score_burnTime=1,score_squish_min=1] ~ ~ ~ \
+	fill ~ ~-2 ~ ~ ~ ~ |target| |meta| replace |input| |inpmeta|
+
+$replace("air",0,"stained_hardened_clay",14)
+$replace("stained_hardened_clay",14,"stained_hardened_clay",1)
+$replace("stained_hardened_clay",1,"stained_hardened_clay",4)
+$replace("stained_hardened_clay",4,"stained_hardened_clay",0)
+
+execute @e[score_burnTime_min=1,score_burnTime=1,score_char_min=1] ~ ~ ~ \
+	fill ~-1 ~-2 ~-1 ~1 ~ ~1 stained_hardened_clay 15 replace stained_hardened_clay
+
+scoreboard players remove @a[score_char_min=1] char 1
+scoreboard players remove @a[score_squish_min=1] squish 1
+
+scoreboard players set @a[tag=!inGame] char 0
+scoreboard players set @a[tag=!inGame] squish 0

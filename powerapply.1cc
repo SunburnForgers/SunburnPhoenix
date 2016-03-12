@@ -1,0 +1,75 @@
+define: p execute @p[score_killBlaze_min=1,tag=inGame] ~ ~ ~ 
+define: r scoreboard players set @a killBlaze 0
+
+INIT: scoreboard objectives add triggers dummy Triggers
+INIT: scoreboard objectives add powerupIndex dummy Powerup Index
+INIT: scoreboard objectives add killBlaze stat.killEntity.Blaze Blaze Kills
+INIT: scoreboard objectives add char dummy Char Time
+INIT: scoreboard objectives add squish dummy Squish Time
+
+define: test(i) scoreboard players test i powerupIndex |i| |i|
+
+scoreboard players add @a killBlaze 0
+
+$test(0)
+REPEAT:COND:\
+	$p title @a title ["",{"text":"Chaos","color":"dark_red","bold":true}]
+	$p title @a subtitle ["",{"text":"Welcome to the end.","color":"dark_red"}]
+	$p scoreboard players set powerup triggers 20
+	$r
+
+REPEAT:$test(1)
+REPEAT:COND:\
+	$p title @a title ["",{"text":"Storm","color":"gold","bold":true}]
+	$p title @a subtitle ["",{"text":"You mortals need to learn your ","color":"gold"},{"text":"place!","color":"gold","bold":true}]
+	$p scoreboard players set storm triggers 1
+	$r
+
+REPEAT:$test(2)
+REPEAT:COND:\
+	$p title @a title ["",{"text":"Phoenix","color":"red","bold":true}]
+	$p title @a subtitle ["",{"text":"Rise from the ashes.","color":"red"}]
+	$p scoreboard players set heal triggers 1
+	$r
+
+REPEAT:$test(3)
+REPEAT:COND:\
+	$p title @a title ["",{"text":"Dash","color":"aqua","bold":true}]
+	$p title @a subtitle ["",{"text":"Get ahead of the competition!","color":"aqua"}]
+	$p effect @a[score_killBlaze_min=1,tag=inGame] speed 10 4
+	$r
+
+REPEAT:$test(4)
+REPEAT:COND:\
+	$p title @a title ["",{"text":"Crush","color":"dark_aqua","bold":true}]
+	$p title @a subtitle ["",{"text":"You feel heavy...","color":"dark_aqua"}]
+	$p effect @a[score_killBlaze=0,tag=inGame] levitation 10 200
+	$r
+
+REPEAT:$test(5)
+REPEAT:COND:\
+	$p title @a title ["",{"text":"Tremor","color":"gray","bold":true}]
+	$p title @a subtitle ["",{"text":"You're quaking in your boots!","color":"gray"}]
+	$p effect @a[score_killBlaze=0,tag=inGame] wither 10 3
+	$r
+
+REPEAT:$test(6)
+REPEAT:COND:\
+	$p title @a title ["",{"text":"Char","color":"dark_gray","bold":true}]
+	$p title @a subtitle ["",{"text":"The ground feels thin...","color":"dark_gray"}]
+	$p scoreboard players set @a[score_killBlaze_min=1,tag=inGame] char 200
+	$r
+
+REPEAT:$test(7)
+REPEAT:COND:\
+	$p title @a title ["",{"text":"Squish","color":"white","bold":true}]
+	$p title @a subtitle ["",{"text":"Quick, clean, and efficient.","color":"white"}]
+	$p scoreboard players set @a[score_killBlaze_min=1,tag=inGame] squish 200
+	$r
+
+REPEAT:$test(8)
+REPEAT:COND:\
+	$p title @a title ["",{"text":"Eternal","color":"dark_purple","bold":true}]
+	$p title @a subtitle ["",{"text":"Mortal no longer.","color":"dark_purple"}]
+	$p effect @a[tag=inGame] levitation 10 255
+	$r

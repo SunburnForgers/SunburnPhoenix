@@ -1,0 +1,17 @@
+define: armorstand(height) INIT: summon ArmorStand ~ ~$SUB($MUL(|height|,2),2) ~ {Tags:["powerupExecutor"],NoGravity:1b}
+define: score(num) scoreboard players set i powerupIndex |num|
+
+define: module(num) \
+$armorstand(|num|) \;\
+BLOCK:minecraft:air \;\
+$score(|num|)
+
+INIT: scoreboard objectives add powerupIndex dummy Powerup Index
+
+setblock ~ ~ ~ air
+$armorstand(0)
+$score(|num|)
+
+FOR(i;1,9):
+	$module(|i|)
+:ENDFOR
