@@ -9,6 +9,7 @@ scoreboard players tag @a[m=!2] remove inGame
 
 INIT: scoreboard teams add no_pvp No PVP
 INIT: scoreboard teams option no_pvp friendlyfire false
-scoreboard teams join no_pvp @a
+scoreboard teams join no_pvp @a[team=!no_pvp]
 
+difficulty normal
 weather clear

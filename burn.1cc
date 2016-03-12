@@ -2,7 +2,7 @@
 INIT: scoreboard objectives add settings dummy Settings
 INIT: scoreboard objectives add burnTime dummy Burn Clock
 INIT: scoreboard players set burnFrequencyPlayer settings 10
-INIT: scoreboard players set burnFrequencyBlaze settings 20
+INIT: scoreboard players set burnFrequencyBlaze settings 40
 
 scoreboard players add @e[type=Blaze] burnTime 1
 scoreboard players add @a[tag=inGame] burnTime 1

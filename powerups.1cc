@@ -21,7 +21,7 @@ scoreboard players set @a triggercalc 0
 scoreboard players test powerup triggers 1
 COND: scoreboard players operation @a triggercalc = powerup triggers
 
-execute @p[score_triggercalc_min=1] ~ ~ ~ summon Blaze 0 94 1500 {HealF:1,Attributes:[{Name:generic.followRange,Base:0},{Name:generic.movementSpeed,Base:0},{Name:generic.attackDamage,Base:0}],Tags:["spreadblaze"]}
+execute @p[score_triggercalc_min=1] ~ ~ ~ summon Blaze 0 94 1500 {Health:0.1,Attributes:[{Name:generic.followRange,Base:0},{Name:generic.movementSpeed,Base:0},{Name:generic.attackDamage,Base:0}],Tags:["spreadblaze"]}
 spreadplayers 1 1499 2 13 false @e[tag=spreadblaze,type=Blaze]
 
 scoreboard players test powerup triggers 1
