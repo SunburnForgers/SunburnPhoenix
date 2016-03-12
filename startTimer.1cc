@@ -1,0 +1,13 @@
+scoreboard players add @a[score_startTimer_min=1] startTimer 1
+execute @a[score_startTimer_min=1,score_startTimer=1] ~ ~ ~ playsound random.successful_hit master @a ~ ~ ~ 2 0 1
+execute @a[score_startTimer_min=20,score_startTimer=20] ~ ~ ~ /playsound ui.button.click master @a[c=1] ~ ~ ~ 
+execute @a[score_startTimer_min=20,score_startTimer=20] ~ ~ ~ /title @a[c=1] title ["",{"text":"3...","color":"red","bold":true}]
+execute @a[score_startTimer_min=40,score_startTimer=40] ~ ~ ~ /playsound ui.button.click master @a[c=1] ~ ~ ~ 
+execute @a[score_startTimer_min=40,score_startTimer=40] ~ ~ ~ /title @a[c=1] title ["",{"text":"2..","color":"gold","bold":true,"italic":true}]
+execute @a[score_startTimer_min=60,score_startTimer=60] ~ ~ ~ /playsound ui.button.click master @a[c=1] ~ ~ ~ 
+execute @a[score_startTimer_min=60,score_startTimer=60] ~ ~ ~ /title @a[c=1] title ["",{"text":"1.","color":"green","bold":true,"italic":true,"underlined":true}]
+execute @a[score_startTimer_min=80,score_startTimer=80] ~ ~ ~ /title @a[c=1] title ["",{"text":"GO!","color":"dark_green","bold":true}]
+tp @a[score_startTimer_min=80,score_startTimer=80] ~ ~-20 ~
+/execute @a[score_startTimer_min=80,score_startTimer=80] ~ ~ ~ /playsound minecraft:entity.enderdragon.ambient master @a[c=1] ~ ~ ~ 3 1 1
+scoreboard players tag @a[score_startTimer_min=80,score_startTimer=80] add inGame
+scoreboard players reset @a[score_startTimer_min=80,score_startTimer=80] startTimer
