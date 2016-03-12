@@ -6,9 +6,9 @@ scoreboard players test storm triggers 1
 COND: scoreboard players operation @a triggercalc = storm triggers
 
 DEFINE: REPLACE(target,meta,input,inpmeta) \
-	execute @p[tag=inGame,score_triggercalc_min=1] ~ ~ ~ \
+	execute @p[score_triggercalc_min=1] ~ ~ ~ \
 		fill -24 55 1524 25 47 1475 |target| |meta| replace |input| |inpmeta| \;\
-	execute @p[tag=inGame,score_triggercalc_min=1] ~ ~ ~ \
+	execute @p[score_triggercalc_min=1] ~ ~ ~ \
 		fill -24 63 1524 25 55 1475 |target| |meta| replace |input| |inpmeta|
 
 $replace("air",0,"stained_hardened_clay",14)
