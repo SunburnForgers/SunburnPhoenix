@@ -1,2 +1,4 @@
 scoreboard players set players numPlayers 0
 execute @a[tag=inGame] ~ ~ ~ scoreboard players add players numPlayers 1
+scoreboard players test playersStatic numPlayers -1 -1
+COND:scoreboard players operation playersStatic numPlayers = players numPlayers
