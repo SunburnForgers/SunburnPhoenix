@@ -10,4 +10,6 @@ execute @a[score_startTimer_min=80,score_startTimer=80] ~ ~ ~ /title @a[c=1] tit
 tp @a[score_startTimer_min=80,score_startTimer=80] ~ ~-20 ~
 /execute @a[score_startTimer_min=80,score_startTimer=80] ~ ~ ~ /playsound minecraft:entity.enderdragon.ambient master @a[c=1] ~ ~ ~ 3 1 1
 scoreboard players tag @a[score_startTimer_min=80,score_startTimer=80] add inGame
+COND:/effect @a[tag=inGame] minecraft:glowing 1000000
 scoreboard players reset @a[score_startTimer_min=80,score_startTimer=80] startTimer
+COND:scoreboard players operation players numPlayersStatic = players numPlayers
