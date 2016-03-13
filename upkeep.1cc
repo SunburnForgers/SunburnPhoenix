@@ -13,3 +13,5 @@ scoreboard teams join no_pvp @a[team=!no_pvp]
 
 difficulty normal
 weather clear
+
+setblock 0 80 0 stained_hardened_clay 1
