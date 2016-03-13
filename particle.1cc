@@ -1,0 +1,15 @@
+define: ex(i) execute @a[tag=inGame] ~ ~ ~ detect ~ ~-$ADD(|i|,1) ~
+
+define: particle particle lava ~ ~ ~ 0 0 0 2
+
+$ex(0) stained_hardened_clay 0 $particle
+$ex(1) stained_hardened_clay 0 $particle
+
+$ex(0) stained_hardened_clay 1 $particle
+$ex(1) stained_hardened_clay 1 $particle
+
+$ex(0) stained_hardened_clay 4 $particle
+$ex(1) stained_hardened_clay 4 $particle
+
+$ex(0) stained_hardened_clay 14 $particle
+$ex(1) stained_hardened_clay 14 $particle
